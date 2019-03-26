@@ -17,16 +17,22 @@
   const outputHeader = document.querySelector("#hello");
   const inputTextfield = document.querySelector("#latestpost");
   const savebutton = document.querySelector("#Savebutton");
-  savebutton.addEventListener("click",function () {
+
+  savebutton.addEventListener('click', function(e) {
       const textTosave = inputTextfield.value;
-      Console.log("i an going to save"+ textTosave +"to firestore");
+      console.log("i an going to save"+ textTosave +"to firestore");
+
       docRef.set({
         mySucess : textTosave
-      }).then(function(){
+      }).then(function(e){
           console.log("status saved");
       
   }).catch(function (error) {
     console.log("status saved",error);
 });
+
   });
+
+
+
 // })();
