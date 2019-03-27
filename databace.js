@@ -17,6 +17,7 @@
   const outputHeader = document.querySelector("#hello");
   const inputTextfield = document.querySelector("#latestpost");
   const savebutton = document.querySelector("#Savebutton");
+  const loadbutton = document.querySelector("#loadButton");
 
   savebutton.addEventListener('click', function(e) {
       const textTosave = inputTextfield.value;
@@ -33,6 +34,13 @@
 
   });
 
-
-
-// })();
+  loadbutton.addEventListener("click",function () {
+    docRef.get().then(function(doc){
+      if(doc && doc.exists){
+        const myData = doc.data();
+        outputHeader.innerText="mySucess" + myData.mySucess;
+      }
+  }).catch(function (error) {
+    console.log("Got an error",error);
+  })
+});
